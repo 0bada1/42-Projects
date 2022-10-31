@@ -1,0 +1,65 @@
+- CHECK FOR THESE INVALID INPUTS
+./push_swap
+./push_swap empty_file.txt
+./push_swap directory/
+./push_swap directory/empty_file.txt
+./push_swap 42 42
+./push_swap INT_MAX + 1
+./push_swap INT_MIN + 1
+./push_swap one
+./push_swap $
+./push_swap 10%3
+./push_swap "empty_file.txt"
+./push_swap "directory/"
+./push_swap "directory/empty_file.txt"
+./push_swap "42 42"
+./push_swap "INT_MAX + 1"
+./push_swap "INT_MIN + 1"
+./push_swap "one"
+./push_swap "$"
+./push_swap "10%3"
+./push_swap 'empty_file.txt'
+./push_swap 'directory/'
+./push_swap 'directory/empty_file.txt'
+./push_swap '42 42'
+./push_swap 'INT_MAX + 1'
+./push_swap 'INT_MIN + 1'
+./push_swap 'one'
+./push_swap '$'
+./push_swap '10%3'
+./push_swap.exe "1 '2' '3' 4 5" "6" "7 '8'" '9' 10 11 '12 "13"' 14
+
+- CHECK FOR THESE CASES
+./push_swap 
+./push_swap 1
+./push_swap 1 2 3 4 5
+./push_swap "1 2 3 4 5 6"
+./push_swap "1 2 3 4" 5 6 7 8
+./push_swap -1 -10 -12
+./push_swap -2147483648 2147483647 21 3534 -234
+./push_swap 0 -1 1 -2 2 -3 3 -4 4 -5 5
+./push_swap '1 2 3 4'
+
+**Notes for fixes**
+- Fix counter (DONE)
+- Fix double and single quote parsing (DONE)
+- Fix double and single quotes parsing which are within each other
+- Fix check_for_duplicates
+
+**Notes for ideas and points**
+- Since the goal is to sort in the least possible amount of moves,
+gathering as much information as possible about the stack and using
+that data to make the best moves possible.
+- Find chunks that are already in order and save them so they never change
+- Make a scores struct that is present in t_node as well. This struct, tests
+different algorithms and choses the best one to execute based on a score which
+is the number of moves it takes to sort the stack.
+
+**Methods to try**
+- Sending the numbers in reverse order to stack b then sending them
+back in to stack where they'd be in order.
+
+**Algorithms to try**
+- Making many different simple algorithms and seeing which one is the most ideal
+for each case
+- Taking chunks, sorting each chunk, sending it to b, 
